@@ -4,7 +4,7 @@
 
 * [1 安装neo vim](#1-安装neo-vim)
 * [2 安装nodejs](#2-安装nodejs)
-* [3 下载init.vim 到 ~/.config/nvim目录下](#3-下载init-vim-到-config-nvim目录下)
+* [3 下载nvim配置文件](#3-下载nvim配置文件)
 * [4 python补全](#4-python补全)
 
 <!-- vim-markdown-toc -->
@@ -15,7 +15,12 @@
 ## 2 安装nodejs
 - 下载对应版本 https://nodejs.org/en/download/
 - 解压
-## 3 下载init.vim 到 ~/.config/nvim目录下
+## 3 下载nvim配置文件
+```
+git clone https://github.com/can-song/nvim.git
+cd nvim
+cp init.vim ~/.config/nvim
+```
 ## 4 python补全
 - 安装python支持
 ```shell
