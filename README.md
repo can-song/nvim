@@ -2,7 +2,7 @@
 
 <!-- vim-markdown-toc Redcarpet -->
 
-* [1 安装neo vim](#1-安装neo-vim)
+* [1 安装neovim](#1-安装neovim)
 * [2 安装nodejs](#2-安装nodejs)
 * [3 下载nvim配置文件](#3-下载nvim配置文件)
 * [4 python补全](#4-python补全)
@@ -11,7 +11,8 @@
 
 环境：Linux
 安装
-## 1 安装neo vim
+## 1 安装neovim
+参考https://github.com/neovim/neovim/releases/tag/nightly
 ## 2 安装nodejs
 - 下载对应版本 https://nodejs.org/en/download/
 - 解压
