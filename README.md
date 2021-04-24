@@ -28,10 +28,3 @@ cp init.vim ~/.config/nvim
 pip install neovim
 
 ```
-- 安装coc组件
-coc组件默认存放在~/.config/coc目录下
-```shell
-# nvim 命令行执行
-CocInstall coc-snippets
-CocInstall coc-jedi
-```
