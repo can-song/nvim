@@ -229,7 +229,19 @@ let g:coc_snippet_prev = '<c-k>'
 imap <C-j> <Plug>(coc-snippets-expand-jump)
 " Use <leader>x for convert visual selected code to snippet
 xmap <leader>x  <Plug>(coc-convert-snippet)
-let g:coc_global_extensions = ['coc-jedi', 'coc-json', 'coc-snippets', 'coc-vimlsp']
+let g:snips_author = 'song can'
+
+let g:coc_global_extensions = [
+    \ 'coc-actions',
+    \ 'coc-yaml',
+    \ 'coc-explorer',
+    \ 'coc-syntax',
+    \ 'coc-python',
+    \ 'coc-pyright',
+    \ 'coc-json',
+    \ 'coc-snippets',
+    \ 'coc-vimlsp']
+
 set hidden
 set updatetime=100
 set shortmess+=c
@@ -267,10 +279,26 @@ nmap <silent> gr <Plug>(coc-references)
 
 " Use K to show documentation in preview window.
 nnoremap <silent> K :call <SID>show_documentation()<CR>
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+    call CocActionAsync('doHover')
+  else
+    execute '!' . &keywordprg . " " . expand('<cword>')
+  endif
+endfunction
 
 " Formatting selected code.
 xmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
-
+function! s:cocActionsOpenFromSelected(type) abort
+  execute 'CocCommand actions.open ' . a:type
+endfunction
+" Applying codeAction to the selected region.
+" Example: `<leader>aap` for current paragraph
+xmap <leader>a  <Plug>(coc-codeaction-selected)
+nmap <leader>a  <Plug>(coc-codeaction-selected)
+nnoremap <space>e :CocCommand explorer<CR>
 
 let g:session_autoload = 'no'
