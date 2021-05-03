@@ -49,7 +49,7 @@ Plug 'Vimjas/vim-python-pep8-indent'
 Plug 'junegunn/fzf', { 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'scrooloose/nerdtree'
-Plug 'ryanoasis/vim-devicons'
+"Plug 'ryanoasis/vim-devicons'
 Plug 'scrooloose/nerdcommenter'
 Plug 'kien/ctrlp.vim'
 Plug 'easymotion/vim-easymotion'
@@ -64,7 +64,7 @@ Plug 'jpalardy/vim-slime'
 Plug 'honza/vim-snippets'
 Plug 'neoclide/coc-snippets'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'Shougo/defx.nvim'
+"Plug 'Shougo/defx.nvim'
 Plug 'preservim/tagbar'
 Plug 'kien/rainbow_parentheses.vim'
 "Plug 'ncm2/ncm2'
@@ -302,3 +302,80 @@ nmap <leader>a  <Plug>(coc-codeaction-selected)
 nnoremap <space>e :CocCommand explorer<CR>
 
 let g:session_autoload = 'no'
+
+" set head comment
+autocmd BufNewFile *.py,*.sh call SetHC()
+nmap <leader>ch :call SetHC()<CR>
+"func SetHC()
+    "if &filetype == 'sh'
+        "call setline(1,           "\#! /usr/bin/env sh")
+        "call append(line('.'),    "")
+        "call append(line('.')+1,  "")
+        "call append(line('.')+2,  "\#########################################################################")
+        "call append(line('.')+3,  "\#    @FileName:     ".expand("%"))
+        "call append(line('.')+4,  "\#    @Author:       songcan")
+        "call append(line('.')+5,  "\#    @Email:        songcan@sensetime.com")
+        "call append(line('.')+6,  "\#    @CreatedTime:  ".strftime("%c"))
+        "call append(line('.')+7,  "\#    @Version:      version 1.0")
+        "call append(line('.')+8,  "\#########################################################################")
+        "call append(line('.')+9,  "")
+        "call append(line('.')+10, "")
+    "elseif &filetype == 'python'
+        "call setline(1,           "\#! /usr/bin/env python")
+        "call setline(2,           "\# -*- coding: utf-8")
+        "call append(line('.')+3,  "")
+        "call append(line('.')+4,  "\#########################################################################")
+        "call append(line('.')+5,  "\#     @FileName:    ".expand("%"))
+        "call append(line('.')+6,  "\#     @Author:      songcan")
+        "call append(line('.')+7,  "\#     @Email:       songcan@sensetime.com ")
+        "call append(line('.')+8,  "\#     @CreatedTime: ".strftime("%c"))
+        "call append(line('.')+9,  "\#     @Version:     version 1.0")
+        "call append(line('.')+10, "\#########################################################################")
+        "call append(line('.')+11, "")
+        "call append(line('.')+12, "")
+    "endif
+    "autocmd BufNewFile * normal G
+"endfunc
+func SetHC()
+    if &filetype == 'sh'
+        call setline(1,  "\#! /usr/bin/env sh")
+        call setline(2,  "")
+        call setline(3,  "")
+        call setline(4,  "\#########################################################################")
+        call setline(5,  "\#    @FileName:     ".expand("%"))
+        call setline(6,  "\#    @Author:       songcan")
+        call setline(7,  "\#    @Email:        songcan@sensetime.com")
+        call setline(8,  "\#    @CreatedTime:  ".strftime("%c"))
+        call setline(9,  "\#    @Version:      version 1.0")
+        call setline(10,  "\#########################################################################")
+        call setline(11, "")
+        call setline(12, "")
+    elseif &filetype == 'python'
+        call setline(1,  "\#! /usr/bin/env python")
+        call setline(2,  "\# -*- coding: utf-8 -*-")
+        call setline(3,  "")
+        call setline(4,  "\#########################################################################")
+        call setline(5,  "\#     @FileName:    ".expand("%"))
+        call setline(6,  "\#     @Author:      songcan")
+        call setline(7,  "\#     @Email:       songcan@sensetime.com ")
+        call setline(8,  "\#     @CreatedTime: ".strftime("%c"))
+        call setline(9,  "\#     @Version:     version 1.0")
+        call setline(10, "\#########################################################################")
+        call setline(11, "")
+        call setline(12, "")
+    endif
+    autocmd BufNewFile * normal G
+endfunc
+
+" set function comment
+nmap <leader>cf :call SetFC()<CR>
+func SetFC()
+    if &filetype == "python"
+        call append(line("."), '"""')
+        call append(line(".")+1, 'Args:')
+        call append(line(".")+2, '')
+        call append(line(".")+3, 'Returns:')
+        call append(line(".")+4, '')
+        call append(line(".")+5, '"""')
+    endif
+endfunc
