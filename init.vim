@@ -5,13 +5,13 @@ set ruler
 set cursorline
 
 set undofile
-set undodir='~/.vim/undodir'
+set undodir=~/.vim/undodir
 
 " directory
 " set autochdir
 
 " mouse
-set mouse=a " allow mouse
+"set mouse=a " allow mouse
 
 " tab
 set tabstop=4
@@ -45,7 +45,7 @@ call plug#begin()
 
 "Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'Vimjas/vim-python-pep8-indent'
-"Plug 'tmux-plugins/vim-tmux'
+Plug 'tmux-plugins/vim-tmux'
 Plug 'junegunn/fzf', { 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'scrooloose/nerdtree'
@@ -113,8 +113,10 @@ let g:slime_python_ipython = 1
 " airline 
 let g:airline#extensions#tabline#enabled=1 " Smart tab line
 let g:airline_powerline_fonts=1
+let g:airline#extensions#tabline#formatter = 'default'
 " let g:airline#extensions#tabline#left_sep=' '
 " let g:airline#extensions#tabline#left_alt_sep='|'
+
 set laststatus=2  " show state
 set t_Co=256      " colorize vim in xshell when connected in windows
 "nmap <C-h> :bp<CR>
@@ -137,7 +139,7 @@ nmap <leader>q :bd<CR>
 
 " airline-themes
 "let g:airline_theme='desertink'
-"let g:airline_theme='moloai'
+let g:airline_theme='moloai'
 "let g:airline_theme='bubblegum' " select theme
 
 " nerdtree
