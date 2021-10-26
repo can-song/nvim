@@ -63,7 +63,7 @@ Plug 'junegunn/vim-easy-align'
 Plug 'jpalardy/vim-slime'
 Plug 'honza/vim-snippets'
 Plug 'neoclide/coc-snippets'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "Plug 'Shougo/defx.nvim'
 Plug 'preservim/tagbar'
 Plug 'kien/rainbow_parentheses.vim'
